@@ -121,6 +121,7 @@ namespace Tienda.Forms
             this.btnPagar.TabIndex = 2;
             this.btnPagar.Text = "Pagar";
             this.btnPagar.UseVisualStyleBackColor = true;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click_1);
             // 
             // btnAnadirCola
             // 
@@ -130,6 +131,7 @@ namespace Tienda.Forms
             this.btnAnadirCola.TabIndex = 3;
             this.btnAnadirCola.Text = "Añadir Cliente a la Cola";
             this.btnAnadirCola.UseVisualStyleBackColor = true;
+            this.btnAnadirCola.Click += new System.EventHandler(this.btnAnadirCola_Click);
             // 
             // FormPrincipal
             // 

@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tienda.Modelos;
 
@@ -23,7 +17,7 @@ namespace Tienda.Forms
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            // Código para ejecutar al cargar FormPrincipal
+            ConfigurarDataGridView();
         }
 
         private void SalirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,6 +30,37 @@ namespace Tienda.Forms
             FormClientes formClientes = new FormClientes(ListaClientes);
             formClientes.FormClosed += (s, args) => MostrarListaClientesEnConsola();
             formClientes.Show();
+        }
+
+        private void VerProductosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FormProductos formProductos = new FormProductos(ListaProductos);
+            formProductos.FormClosed += (s, args) => MostrarListaProductosEnConsola();
+            formProductos.Show();
+        }
+
+        private void ConfigurarDataGridView()
+        {
+            dgvColaPago.Columns.Clear();
+            dgvColaPago.AutoGenerateColumns = false;
+            dgvColaPago.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Cliente", DataPropertyName = "Cliente", Width = 150 });
+            dgvColaPago.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Producto", DataPropertyName = "Producto", Width = 150 });
+            dgvColaPago.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Cantidad", DataPropertyName = "Cantidad", Width = 100 });
+        }
+
+        private void btnAnadirCola_Click(object sender, EventArgs e)
+        {
+            FormAgregarClienteCola formAgregarCola = new FormAgregarClienteCola(ListaClientes, ListaProductos);
+            if (formAgregarCola.ShowDialog() == DialogResult.OK)
+            {
+                string cliente = formAgregarCola.ObtenerClienteSeleccionado();
+                List<Tuple<string, int>> productos = formAgregarCola.ObtenerProductosSeleccionados();
+
+                foreach (var producto in productos)
+                {
+                    dgvColaPago.Rows.Add(cliente, producto.Item1, producto.Item2);
+                }
+            }
         }
 
         private void MostrarListaClientesEnConsola()
@@ -56,12 +81,17 @@ namespace Tienda.Forms
             }
         }
 
-        private void VerProductosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void btnPagar_Click_1(object sender, EventArgs e)
         {
-            FormProductos formProductos = new FormProductos(ListaProductos);
-            formProductos.FormClosed += (s, args) => MostrarListaProductosEnConsola();
-            formProductos.Show();
+            if (dgvColaPago.Rows.Count > 0)
+            {
+                dgvColaPago.Rows.RemoveAt(0);
+                MessageBox.Show("El cliente ha realizado su pago y ha salido de la cola.", "Pago Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No hay clientes en la cola de pago.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
-
