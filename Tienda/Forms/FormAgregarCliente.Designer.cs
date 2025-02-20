@@ -28,15 +28,16 @@ namespace Tienda.Forms
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(161, 65);
+            this.txtNombre.Location = new System.Drawing.Point(130, 51);
+            this.txtNombre.MaxLength = 20;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(150, 20);
+            this.txtNombre.Size = new System.Drawing.Size(120, 20);
             this.txtNombre.TabIndex = 7;
             // 
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(92, 68);
+            this.labelNombre.Location = new System.Drawing.Point(62, 54);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(44, 13);
             this.labelNombre.TabIndex = 6;
@@ -45,15 +46,16 @@ namespace Tienda.Forms
             // labelApellido
             // 
             this.labelApellido.AutoSize = true;
-            this.labelApellido.Location = new System.Drawing.Point(92, 124);
+            this.labelApellido.Location = new System.Drawing.Point(62, 100);
             this.labelApellido.Name = "labelApellido";
-            this.labelApellido.Size = new System.Drawing.Size(44, 13);
+            this.labelApellido.Size = new System.Drawing.Size(49, 13);
             this.labelApellido.TabIndex = 4;
-            this.labelApellido.Text = "Apellido";
+            this.labelApellido.Text = "Apellidos";
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(161, 121);
+            this.txtApellido.Location = new System.Drawing.Point(130, 97);
+            this.txtApellido.MaxLength = 50;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(150, 20);
             this.txtApellido.TabIndex = 5;
@@ -61,7 +63,7 @@ namespace Tienda.Forms
             // labelTelefono
             // 
             this.labelTelefono.AutoSize = true;
-            this.labelTelefono.Location = new System.Drawing.Point(92, 176);
+            this.labelTelefono.Location = new System.Drawing.Point(57, 145);
             this.labelTelefono.Name = "labelTelefono";
             this.labelTelefono.Size = new System.Drawing.Size(49, 13);
             this.labelTelefono.TabIndex = 2;
@@ -69,14 +71,15 @@ namespace Tienda.Forms
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(161, 173);
+            this.txtTelefono.Location = new System.Drawing.Point(130, 142);
+            this.txtTelefono.MaxLength = 9;
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(150, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(100, 20);
             this.txtTelefono.TabIndex = 3;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(70, 265);
+            this.btnAceptar.Location = new System.Drawing.Point(60, 210);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 1;
@@ -86,7 +89,7 @@ namespace Tienda.Forms
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(205, 265);
+            this.btnCancelar.Location = new System.Drawing.Point(176, 210);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 0;
@@ -96,7 +99,7 @@ namespace Tienda.Forms
             // 
             // FormAgregarCliente
             // 
-            this.ClientSize = new System.Drawing.Size(380, 320);
+            this.ClientSize = new System.Drawing.Size(308, 260);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.labelTelefono);

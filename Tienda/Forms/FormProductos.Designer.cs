@@ -36,7 +36,7 @@
             // 
             // btnBorrarProducto
             // 
-            this.btnBorrarProducto.Location = new System.Drawing.Point(304, 322);
+            this.btnBorrarProducto.Location = new System.Drawing.Point(283, 265);
             this.btnBorrarProducto.Name = "btnBorrarProducto";
             this.btnBorrarProducto.Size = new System.Drawing.Size(128, 32);
             this.btnBorrarProducto.TabIndex = 5;
@@ -46,7 +46,7 @@
             // 
             // btnAgregarProducto
             // 
-            this.btnAgregarProducto.Location = new System.Drawing.Point(117, 322);
+            this.btnAgregarProducto.Location = new System.Drawing.Point(101, 265);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
             this.btnAgregarProducto.Size = new System.Drawing.Size(126, 32);
             this.btnAgregarProducto.TabIndex = 4;
@@ -57,16 +57,16 @@
             // dgvProductos
             // 
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(59, 37);
+            this.dgvProductos.Location = new System.Drawing.Point(40, 33);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.Size = new System.Drawing.Size(436, 261);
+            this.dgvProductos.Size = new System.Drawing.Size(426, 200);
             this.dgvProductos.TabIndex = 3;
             // 
             // FormProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 385);
+            this.ClientSize = new System.Drawing.Size(507, 340);
             this.Controls.Add(this.btnBorrarProducto);
             this.Controls.Add(this.btnAgregarProducto);
             this.Controls.Add(this.dgvProductos);

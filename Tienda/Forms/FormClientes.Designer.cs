@@ -18,7 +18,7 @@ namespace Tienda.Forms
             // 
             // btnAgregarCliente
             // 
-            this.btnAgregarCliente.Location = new System.Drawing.Point(98, 290);
+            this.btnAgregarCliente.Location = new System.Drawing.Point(110, 290);
             this.btnAgregarCliente.Name = "btnAgregarCliente";
             this.btnAgregarCliente.Size = new System.Drawing.Size(120, 30);
             this.btnAgregarCliente.TabIndex = 1;
@@ -28,7 +28,7 @@ namespace Tienda.Forms
             // 
             // btnBorrarCliente
             // 
-            this.btnBorrarCliente.Location = new System.Drawing.Point(320, 290);
+            this.btnBorrarCliente.Location = new System.Drawing.Point(305, 290);
             this.btnBorrarCliente.Name = "btnBorrarCliente";
             this.btnBorrarCliente.Size = new System.Drawing.Size(120, 30);
             this.btnBorrarCliente.TabIndex = 2;
@@ -39,9 +39,9 @@ namespace Tienda.Forms
             // dgvClientes
             // 
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Location = new System.Drawing.Point(48, 27);
+            this.dgvClientes.Location = new System.Drawing.Point(63, 26);
             this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.Size = new System.Drawing.Size(448, 246);
+            this.dgvClientes.Size = new System.Drawing.Size(407, 246);
             this.dgvClientes.TabIndex = 3;
             // 
             // FormClientes

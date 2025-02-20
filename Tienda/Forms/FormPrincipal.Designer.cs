@@ -1,33 +1,25 @@
-﻿namespace Tienda.Forms
+﻿using System;
+using System.Windows.Forms;
+
+namespace Tienda.Forms
 {
-    partial class FormPrincipal
+    public partial class FormPrincipal : Form
     {
-        /// <summary>
-        /// Variable del diseñador necesaria.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SalirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem VerClientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem VerProductosToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgvColaPago;
+        private System.Windows.Forms.Button btnPagar;
+        private System.Windows.Forms.Button btnAnadirCola;
+        private System.Windows.Forms.PictureBox pbBanner;
 
-        /// <summary>
-        /// Limpiar los recursos que se estén usando.
-        /// </summary>
-        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Código generado por el Diseñador de Windows Forms
-
-        /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
-        /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SalirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,7 +27,13 @@
             this.VerClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VerProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pbBanner = new System.Windows.Forms.PictureBox();
+            this.dgvColaPago = new System.Windows.Forms.DataGridView();
+            this.btnPagar = new System.Windows.Forms.Button();
+            this.btnAnadirCola = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvColaPago)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -47,8 +45,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(864, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.TabIndex = 4;
             // 
             // archivoToolStripMenuItem
             // 
@@ -95,11 +92,52 @@
             this.VerProductosToolStripMenuItem.Text = "Ver Productos";
             this.VerProductosToolStripMenuItem.Click += new System.EventHandler(this.VerProductosToolStripMenuItem_Click_1);
             // 
+            // pbBanner
+            // 
+            this.pbBanner.Image = ((System.Drawing.Image)(resources.GetObject("pbBanner.Image")));
+            this.pbBanner.Location = new System.Drawing.Point(54, 30);
+            this.pbBanner.Name = "pbBanner";
+            this.pbBanner.Size = new System.Drawing.Size(756, 149);
+            this.pbBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBanner.TabIndex = 0;
+            this.pbBanner.TabStop = false;
+            // 
+            // dgvColaPago
+            // 
+            this.dgvColaPago.AllowUserToAddRows = false;
+            this.dgvColaPago.AllowUserToDeleteRows = false;
+            this.dgvColaPago.Location = new System.Drawing.Point(178, 196);
+            this.dgvColaPago.Name = "dgvColaPago";
+            this.dgvColaPago.ReadOnly = true;
+            this.dgvColaPago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvColaPago.Size = new System.Drawing.Size(500, 250);
+            this.dgvColaPago.TabIndex = 1;
+            // 
+            // btnPagar
+            // 
+            this.btnPagar.Location = new System.Drawing.Point(275, 470);
+            this.btnPagar.Name = "btnPagar";
+            this.btnPagar.Size = new System.Drawing.Size(100, 30);
+            this.btnPagar.TabIndex = 2;
+            this.btnPagar.Text = "Pagar";
+            this.btnPagar.UseVisualStyleBackColor = true;
+            // 
+            // btnAnadirCola
+            // 
+            this.btnAnadirCola.Location = new System.Drawing.Point(473, 470);
+            this.btnAnadirCola.Name = "btnAnadirCola";
+            this.btnAnadirCola.Size = new System.Drawing.Size(150, 30);
+            this.btnAnadirCola.TabIndex = 3;
+            this.btnAnadirCola.Text = "Añadir Cliente a la Cola";
+            this.btnAnadirCola.UseVisualStyleBackColor = true;
+            // 
             // FormPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 511);
+            this.ClientSize = new System.Drawing.Size(864, 520);
+            this.Controls.Add(this.pbBanner);
+            this.Controls.Add(this.dgvColaPago);
+            this.Controls.Add(this.btnPagar);
+            this.Controls.Add(this.btnAnadirCola);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
@@ -108,20 +146,11 @@
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvColaPago)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
-        #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem SalirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem VerClientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem VerProductosToolStripMenuItem;
     }
 }
-
