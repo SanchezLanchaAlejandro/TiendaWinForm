@@ -52,11 +52,11 @@
     <Compile Include="Forms\FormAgregarCliente.Designer.cs">
       <DependentUpon>FormAgregarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormBorrarCliente.cs">
+    <Compile Include="Forms\FormAgregarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormBorrarCliente.Designer.cs">
-      <DependentUpon>FormBorrarCliente.cs</DependentUpon>
+    <Compile Include="Forms\FormAgregarProducto.Designer.cs">
+      <DependentUpon>FormAgregarProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormClientes.cs">
       <SubType>Form</SubType>
@@ -70,6 +70,12 @@
     <Compile Include="Forms\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormProductos.Designer.cs">
+      <DependentUpon>FormProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\Cliente.cs" />
     <Compile Include="Modelos\Producto.cs" />
     <Compile Include="Program.cs" />
@@ -77,14 +83,17 @@
     <EmbeddedResource Include="Forms\FormAgregarCliente.resx">
       <DependentUpon>FormAgregarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormBorrarCliente.resx">
-      <DependentUpon>FormBorrarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormAgregarProducto.resx">
+      <DependentUpon>FormAgregarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormProductos.resx">
+      <DependentUpon>FormProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

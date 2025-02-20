@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Tienda.Forms
@@ -17,9 +18,9 @@ namespace Tienda.Forms
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             // Obtener los valores de los TextBox
-            Nombre = txtNombre.Text;
-            Apellido = txtApellido.Text;
-            Telefono = txtTelefono.Text;
+            Nombre = txtNombre.Text.Trim();
+            Apellido = txtApellido.Text.Trim();
+            Telefono = txtTelefono.Text.Trim();
 
             // Validar que los campos no estén vacíos
             if (string.IsNullOrWhiteSpace(Nombre) ||
@@ -27,6 +28,16 @@ namespace Tienda.Forms
                 string.IsNullOrWhiteSpace(Telefono))
             {
                 MessageBox.Show("Todos los campos son obligatorios.",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validar que el teléfono solo contenga números
+            if (!Telefono.All(char.IsDigit))
+            {
+                MessageBox.Show("El teléfono solo debe contener caracteres numéricos.",
                                 "Error",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);

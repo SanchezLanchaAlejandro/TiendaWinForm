@@ -8,11 +8,14 @@ namespace Tienda.Forms
 {
     public partial class FormClientes : Form
     {
-        private List<Cliente> listaClientes = new List<Cliente>();
+        private List<Cliente> listaClientes;
+        private int idCounter = 1;
 
-        public FormClientes()
+        public FormClientes(List<Cliente> clientes)
         {
             InitializeComponent();
+            listaClientes = clientes;
+            CargarClientes();
         }
 
         private void FormClientes_Load(object sender, EventArgs e)
@@ -38,6 +41,18 @@ namespace Tienda.Forms
             dgvClientes.DataSource = listaClientes;
         }
 
+        private void dgvClientes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvClientes.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgvClientes.SelectedRows[0].Index;
+                if (selectedIndex < 0 || selectedIndex >= listaClientes.Count)
+                {
+                    dgvClientes.ClearSelection();
+                }
+            }
+        }
+
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
             FormAgregarCliente formAgregar = new FormAgregarCliente();
@@ -58,25 +73,34 @@ namespace Tienda.Forms
 
         private void btnBorrarCliente_Click(object sender, EventArgs e)
         {
-            FormBorrarCliente formBorrar = new FormBorrarCliente();
-            if (formBorrar.ShowDialog() == DialogResult.OK)
+            if (dgvClientes.SelectedRows.Count > 0)
             {
-                Cliente clienteAEliminar = listaClientes.FirstOrDefault(c => c.Id == formBorrar.ClienteId);
+                int clienteIdSeleccionado = (int)dgvClientes.SelectedRows[0].Cells["ID"].Value;
+                Cliente clienteAEliminar = listaClientes.FirstOrDefault(c => c.Id == clienteIdSeleccionado);
+
                 if (clienteAEliminar != null)
                 {
-                    listaClientes.Remove(clienteAEliminar);
-                    CargarClientes();
+                    DialogResult confirmacion = MessageBox.Show($"¿Estás seguro de que deseas eliminar al cliente con ID {clienteIdSeleccionado}?",
+                                                                "Confirmar Eliminación",
+                                                                MessageBoxButtons.YesNo,
+                                                                MessageBoxIcon.Warning);
+
+                    if (confirmacion == DialogResult.Yes)
+                    {
+                        listaClientes.Remove(clienteAEliminar);
+                        CargarClientes();
+                        MessageBox.Show("Cliente eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No se encontró un cliente con el ID ingresado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se encontró el cliente en la lista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-        }
-
-        private void FormClientes_Load_1(object sender, EventArgs e)
-        {
-
+            else
+            {
+                MessageBox.Show("Seleccione un cliente válido para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
