@@ -38,13 +38,6 @@ namespace Tienda.Forms
             formClientes.Show();
         }
 
-        private void VerProductosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormProductos formProductos = new FormProductos(ListaProductos);
-            formProductos.FormClosed += (s, args) => MostrarListaProductosEnConsola();
-            formProductos.Show();
-        }
-
         private void MostrarListaClientesEnConsola()
         {
             Console.WriteLine("Lista de clientes en FormPrincipal:");
@@ -61,6 +54,13 @@ namespace Tienda.Forms
             {
                 Console.WriteLine($"ID: {producto.Id}, Nombre: {producto.Nombre}, Precio: {producto.Precio}, Stock: {producto.Stock}");
             }
+        }
+
+        private void VerProductosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FormProductos formProductos = new FormProductos(ListaProductos);
+            formProductos.FormClosed += (s, args) => MostrarListaProductosEnConsola();
+            formProductos.Show();
         }
     }
 }

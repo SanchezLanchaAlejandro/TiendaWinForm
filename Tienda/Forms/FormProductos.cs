@@ -66,25 +66,25 @@ namespace Tienda.Forms
             dgvProductos.DataSource = listaProductos;
         }
 
-        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        private void btnAgregarProducto_Click_1(object sender, EventArgs e)
         {
             FormAgregarProducto formAgregar = new FormAgregarProducto(productosPredefinidos);
             if (formAgregar.ShowDialog() == DialogResult.OK)
             {
-                Producto productoSeleccionado = productosPredefinidos.FirstOrDefault(p => p.Nombre == formAgregar.Nombre);
-                if (productoSeleccionado != null && !listaProductos.Any(p => p.Nombre == productoSeleccionado.Nombre))
+                var productoSeleccionado = listaProductos.FirstOrDefault(p => p.Nombre == formAgregar.Nombre);
+                if (productoSeleccionado != null)
                 {
-                    listaProductos.Add(productoSeleccionado);
+                    productoSeleccionado.Stock += formAgregar.Cantidad; // Aumenta el stock existente
                     CargarProductos();
                 }
             }
         }
 
-        private void btnBorrarProducto_Click(object sender, EventArgs e)
+        private void btnBorrarProducto_Click_1(object sender, EventArgs e)
         {
             if (dgvProductos.SelectedRows.Count > 0)
             {
-                int productoIdSeleccionado = (int)dgvProductos.SelectedRows[0].Cells["ID"].Value;
+                int productoIdSeleccionado = (int)dgvProductos.SelectedRows[0].Cells[0].Value;
                 Producto productoAEliminar = listaProductos.FirstOrDefault(p => p.Id == productoIdSeleccionado);
 
                 if (productoAEliminar != null)

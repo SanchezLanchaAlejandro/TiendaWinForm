@@ -31,7 +31,18 @@ namespace Tienda.Forms
             cmbProducto.ValueMember = "Nombre";
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
+
+        private void FormAgregarProducto_Load(object sender, EventArgs e)
+        {
+            CargarProductos();
+        }
+
+        private void btnAceptar_Click_1(object sender, EventArgs e)
         {
             if (cmbProducto.SelectedItem == null)
             {
@@ -45,17 +56,5 @@ namespace Tienda.Forms
             DialogResult = DialogResult.OK;
             Close();
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-            Close();
-        }
-
-        private void FormAgregarProducto_Load(object sender, EventArgs e)
-        {
-            CargarProductos();
-        }
-
     }
 }

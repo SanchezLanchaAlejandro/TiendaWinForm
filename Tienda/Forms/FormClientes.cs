@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tienda.Modelos;
 
@@ -9,18 +14,16 @@ namespace Tienda.Forms
     public partial class FormClientes : Form
     {
         private List<Cliente> listaClientes;
-        private int idCounter = 1;
-
         public FormClientes(List<Cliente> clientes)
         {
             InitializeComponent();
             listaClientes = clientes;
+            ConfigurarDataGridView();
             CargarClientes();
         }
 
         private void FormClientes_Load(object sender, EventArgs e)
         {
-            ConfigurarDataGridView();
             CargarClientes();
         }
 
@@ -41,19 +44,7 @@ namespace Tienda.Forms
             dgvClientes.DataSource = listaClientes;
         }
 
-        private void dgvClientes_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvClientes.SelectedRows.Count > 0)
-            {
-                int selectedIndex = dgvClientes.SelectedRows[0].Index;
-                if (selectedIndex < 0 || selectedIndex >= listaClientes.Count)
-                {
-                    dgvClientes.ClearSelection();
-                }
-            }
-        }
-
-        private void btnAgregarCliente_Click(object sender, EventArgs e)
+        private void btnAgregarCliente_Click_1(object sender, EventArgs e)
         {
             FormAgregarCliente formAgregar = new FormAgregarCliente();
             if (formAgregar.ShowDialog() == DialogResult.OK)
@@ -71,11 +62,11 @@ namespace Tienda.Forms
             }
         }
 
-        private void btnBorrarCliente_Click(object sender, EventArgs e)
+        private void btnBorrarCliente_Click_1(object sender, EventArgs e)
         {
             if (dgvClientes.SelectedRows.Count > 0)
             {
-                int clienteIdSeleccionado = (int)dgvClientes.SelectedRows[0].Cells["ID"].Value;
+                int clienteIdSeleccionado = (int)dgvClientes.SelectedRows[0].Cells[0].Value;
                 Cliente clienteAEliminar = listaClientes.FirstOrDefault(c => c.Id == clienteIdSeleccionado);
 
                 if (clienteAEliminar != null)
